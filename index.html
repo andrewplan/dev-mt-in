@@ -10,101 +10,134 @@
 
 <body>
 
-<!-- ****************** Initial View, No Data ************************* -->
+<!-- ****************** Top Nav Bars ************************* -->
 
-	<!-- top-nav-bar -->
-	<nav class="initial-view-top-nav-bar">
+	<!-- Initial View -->
+	<!-- <nav id="initial-view-top-nav-bar" class="all-top-nav-bars">
 
-		<div id="search-icon-wrapper">
+		<div class="left-icon-wrapper">
 			<img src="images/icons/Search.svg" alt="" />
 		</div>
-		<h1 class="devmtn-text">DevMountain</h1>
-		<div id="hamburger-icon-wrapper">
-			<img src="images/icons/Ham.svg" alt="">
+
+		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
+
+		<div class="right-icon-wrapper">
+			<img src="images/icons/Ham.svg" alt="Hamburger menu">
+		</div>
+
+	</nav> -->
+
+	<!-- Landing Page -->
+	<nav id="landing-page-top-nav-bar" class="all-top-nav-bars">
+
+		<div class="landing-page-left-icon-wrapper">
+			<img class="landing-page-left-icon" src="images/icons/landing-page-left-icon-placeholder.png" alt="" />
+		</div>
+
+		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
+
+		<div class="landing-page-right-icon-wrapper">
+			<img class="landing-page-right-icon" src="images/icons/Search.svg" alt="Search For New Friends">
 		</div>
 
 	</nav>
 
-	<!-- END initial-view, top-nav-bar -->
+	<!-- Friends View | Search For New Friends | Friend Profile View | Update Profile -->
+	<!-- <nav id="all-other-views-top-nav-bar" class="all-top-nav-bars friends-view-top-nav-bar search-for-new-friends-top-nav-bar friend-profile-view-top-nav-bar update-profile-top-nav-bar">
 
-	<!-- initial view, main wrapper -->
-	<main id="initial-view-main-wrapper">
-		<div id="add-info-wrapper">
-			<h2 class="welcome-to-devmtn-text">
-				Welcome to <span class="devmtn-link-text">DevMountain</span> Social
+		<div class="all-other-views-left-icon-wrapper">
+			<img class="all-other-views-left-icon" src="images/icons/Back-Arrow.svg" alt="" />
+		</div>
+
+		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
+
+		<div class="all-other-views-right-icon-wrapper">
+			<img class="all-other-views-right-icon" src="images/icons/Ham.svg" alt="Hamburger menu">
+		</div>
+
+	</nav> -->
+
+
+<!-- ************************** START of main container ************************* -->
+
+	<main class="main-wrapper">
+
+	<!-- ********************** Left Side ************************* -->
+
+		<!-- Initial View -->
+		<!-- <div id="initial-view-left-side">
+			<h2 class="initial-view-welcome-to-devmtn-text">
+				Welcome to <span class="initial-view-left-side-devmtn-link-text">DevMountain</span> Social
 				<br />
 				Add Some Info So Friends Can Find You
 			</h2>
-			<form class="add-info-form" action="">
-				<input type="text" class="input-full-name" placeholder="Full Name">
-				<input type="text" class="input-tagline" placeholder="Tagline">
-				<input type="text" class="input-profile-image-url" placeholder="Profile Image Url">
-				<input type="text" class="input-bio" placeholder="Bio">
-				<button class="save-changes">Save Changes</button>
+			<form class="initial-view-left-side-add-info-form" action="">
+				<input type="text" class="initial-view-left-side-input-full-name" placeholder="Full Name">
+				<input type="text" class="initial-view-left-side-input-tagline" placeholder="Tagline">
+				<input type="text" class="initial-view-left-side-input-profile-image-url" placeholder="Profile Image Url">
+				<textarea name="bio-text" class="initial-view-left-side-input-bio" cols="30" rows="10" placeholder="Bio"></textarea>
+				<button class="initial-view-left-side-save-changes">Save Changes</button>
 			</form>
+		</div> -->
+
+		<!-- Landing Page | Friends View | Search For New Friends | Update Profile -->
+		<div id="all-other-views-left-side" class="landing-page-left-side friends-view-left-side search-for-new-friends-left-side update-profile-left-side">
+			<!-- name -->
+			<h1 class="landing-page-left-side-profile-name-heading">Chis Johnson</h1>
+			<!-- tagline -->
+			<h2 class="landing-page-left-side-tagline-text">SOME AWESOME TAGLINE ABOUT YOU</h2>
+			<!-- bio text -->
+			<p class="landing-page-left-side-bio-text">
+				Lorem Khaled Ipsum is a major key to success. I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. Celebrate success right, the only way, apple. The weather is amazing, walk with me through the pathway of more success. Take this journey with me, Lion! A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. Eliptical talk. Wraith talk. A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. Put it this way, it took me twenty five years to get these plants, twenty five years of blood sweat and tears, and I’m never giving up, I’m just getting started.
+
+				<br/>
+				<br/>
+
+				The weather is amazing, walk with me through the pathway of more success. Take this journey with me, Lion! I told you all this before, when you have a swimming pool, do not use chlorine, use salt water, the healing, salt water is the healing. You see that bamboo behind me though, you see that bamboo? Ain’t nothin’ like bamboo. Bless up. Don’t ever play yourself. You smart, you loyal, you a genius. Bless up. The other day the grass was brown, now it’s green because I ain’t give up. Never surrender.
+			</p>
+
 		</div>
+
+		<!-- Friend Profile View -->
+			<!-- friend name -->
+			<!-- friend tagline -->
+			<!-- friend bio text -->
+
+	<!-- ********************** Right Side ************************* -->
+
+		<!-- Initial View -->
 		<div id="right-side-wrapper">
+			<!-- Initial View Image -->
 			<img src="images/initial-view-img-placeholder.png" alt="">
+
+		<!-- Landing Page -->
+			<!-- wrapper -->
+			<!-- image -->
+
+		<!-- Friend Profile -->
+			<!-- wrapper -->
+			<!-- image -->
+
+		<!-- Friends View -->
+			<!-- wrapper div -->
+			<!-- Friends View nav bar div -->
+			<!-- grid of friends' profile pics -->
+
+		<!-- Search For New Friends -->
+			<!-- wrapper div -->
+			<!-- Search For New Friends nav bar div -->
+			<!-- grid of search results profile pics -->
+
+		<!-- Update Profile -->
+			<!-- form container -->
+			<!-- input boxes for updating data -->
+			<!-- button for saving changes -->
 		</div>
+
 	</main>
-	<!-- END initial view, main wrapper -->
 
-<!-- ****************** END Initial View ************************* -->
+<!-- ************************** END of main container ************************* -->
 
-<!-- ****************** Landing Page ***************************** -->
-
-	<!-- <main id="landing-page-main-wrapper">
-		<div id="add-info-wrapper">
-			<h2 class="welcome-to-devmtn-text">
-				Welcome to <span class="devmtn-link-text">DevMountain</span> Social
-				<br />
-				Add Some Info So Friends Can Find You
-			</h2>
-			<form class="add-info-form" action="">
-				<input type="text" class="input-full-name" placeholder="Full Name">
-				<input type="text" class="input-tagline" placeholder="Tagline">
-				<input type="text" class="input-profile-image-url" placeholder="Profile Image Url">
-				<input type="text" class="input-bio" placeholder="Bio">
-				<button class="save-changes">Save Changes</button>
-			</form>
-		</div>
-		<div id="right-side-wrapper">
-			<img src="images/initial-view-img-placeholder.png" alt="">
-		</div>
-	</main> -->
-	<!-- end of main -->
-
-<!-- ****************** END Landing Page ************************* -->
-
-<!-- ************************** Nav bar for ***************************
-													 - 'Friends View'
-													 - 'Search For New Friends'
-													 - 'Friend Profile View'
-													 - 'Update Profile'
-********************************************************************* -->
-
-
-
-
-<!-- ************************** END Nav bar for *************************
-													 - 'Friends View'
-													 - 'Search For New Friends'
-													 - 'Friend Profile View'
-													 - 'Update Profile'
-********************************************************************* -->
-
-
-<!-- ****************** Friends View ( main wrapper ) ********************* -->
-<!-- ************** END Friends View ( main wrapper ) ********************* -->
-
-<!-- ************** Search For New Friends ( main wrapper ) ************** -->
-<!-- ************ END Search For New Friends ( main wrapper ) ************* -->
-
-<!-- **************** Friend Profile View ( main wrapper ) **************** -->
-<!-- ************** END Friend Profile View ( main wrapper ) ************* -->
-
-<!-- **************** Update Profile ( main wrapper ) **************** -->
-<!-- ************** Update Profile ( main wrapper ) ****************** -->
 
 <!-- ****************** Footer ( all views ) ************************* -->
 
@@ -114,6 +147,5 @@
   	<span>Update Profile</span>
   </footer>
 
-<!-- ****************** END Footer ( all views ) ********************* -->
 </body>
 </html>
