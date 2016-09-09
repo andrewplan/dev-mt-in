@@ -105,21 +105,22 @@ main {
       height: 2em;
     }
 
-    /********* Landing page **************/
+    /********* My Profile & Friend Profile Views **************/
 
-    h1.landing-page-left-side-profile-name-heading {
+    h1.profile-left-side-name-heading {
       font-size: 38.4px;
       line-height: 46px;
+      color: #272727;
     }
 
-    h2.landing-page-left-side-tagline-text {
+    h2.profile-left-side-tagline-text {
       font-size: 10.2px;
       line-height: 14px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
     }
 
-    p.landing-page-left-side-bio-text {
+    .profile-left-side-bio-text {
       font-family: 'Open Sans', sans-serif;
       font-size: 10.2px;
       line-height: 14px;
@@ -127,16 +128,19 @@ main {
 
 /************* Right Side ****************/
 
-#right-side-wrapper {
-  width: 60%;
-  height: 30em;
-  display: flex;
-}
+    /********* Initial View, Landing Page,
+        Friend Profile View ******/
 
-#right-side-wrapper img {
-  height: 30em;
-  margin: 0 auto;
-}
+    .right-side-image-wrapper {
+      width: 60%;
+      height: 30em;
+      display: flex;
+    }
+
+    .right-side-image-wrapper img {
+      height: 30em;
+      margin: 0 auto;
+    }
 
 
 
