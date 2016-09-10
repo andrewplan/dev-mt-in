@@ -110,24 +110,17 @@ main {
     #my-profile-view-left-side, #friend-profile-view-left-side {
       width: 30em;
       padding-left: 1.5em;
+      padding-right: 1.5em;
       text-align: justify;
     }
 
-    h1.profile-view-left-side-first-name-heading, h1.profile-view-left-side-last-name-heading {
+    h1.profile-view-left-side-name-heading {
       font-size: 38.4px;
       color: #272727;
-    }
-
-    h1.profile-view-left-side-first-name-heading {
-      margin-bottom: 0;
-      text-align: left;
-    }
-
-    h1.profile-view-left-side-last-name-heading {
       line-height: 46px;
-      text-align: right;
-      margin-top: 0;
-      margin-bottom: 0.35em;
+      text-align: left;
+      margin-top: 0.75em;
+      margin-bottom: 0.45em;
       margin-right: 0.2em;
     }
 
@@ -142,7 +135,16 @@ main {
       font-family: 'Open Sans', sans-serif;
       font-size: 10.2px;
       line-height: 14px;
-      padding-right: 2em;
+    }
+
+    .profile-view-left-side-add-friend-button {
+      height: 1.7em;
+      padding: 0.3em;
+      width: 100%;
+      text-align: center;
+      background-color: #00FFE9;
+      font-size: 13.18px;
+      line-height: 16px;
     }
 
 /************* Right Side ****************/
