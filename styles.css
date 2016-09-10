@@ -113,10 +113,22 @@ main {
       text-align: justify;
     }
 
-    h1.profile-view-left-side-name-heading {
+    h1.profile-view-left-side-first-name-heading, h1.profile-view-left-side-last-name-heading {
       font-size: 38.4px;
-      line-height: 46px;
       color: #272727;
+    }
+
+    h1.profile-view-left-side-first-name-heading {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    h1.profile-view-left-side-last-name-heading {
+      line-height: 46px;
+      text-align: right;
+      margin-top: 0;
+      margin-bottom: 0.35em;
+      margin-right: 0.2em;
     }
 
     h2.profile-view-left-side-tagline-text {
@@ -184,12 +196,12 @@ main {
 
     #my-friends-grid {
       width: 100%;
-      height: 30em;
+      height: 27em;
       column-count: 2;
     }
 
     .friend-thumbnail {
-      height: 7em;
+      height: 7.5em;
       margin: 0.2em 0;
       width: 9em;
       border: 1px solid black;
