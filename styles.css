@@ -15,6 +15,7 @@ body {
 main {
   display: flex;
   padding: 1.5em 0.5em;
+  justify-content: space-around;
 }
 
 /*************** Top Nav Bars *****************/
@@ -108,7 +109,7 @@ main {
     /********* My Profile & Friend Profile Views **************/
 
     #my-profile-view-left-side, #friend-profile-view-left-side {
-      width: 30em;
+      width: 17em;
       padding-left: 1.5em;
       padding-right: 1.5em;
       text-align: justify;
@@ -276,6 +277,64 @@ main {
       display: inline-block;
     }
 
+    /********* Update Profile ******/
+
+    #update-profile-right-side {
+      height: 30em;
+      width: 17em;
+    }
+
+    #update-profile-right-side div {
+      box-shadow: 0.05em 0.08em 0.1em #D7D7D7;
+    }
+
+    .update-profile-right-side-profile-settings {
+      height: 2.5em;
+      margin-bottom: 0.3em;
+      border: 1px solid #ECECEC;
+      font-size: 13.44px;
+      line-height: 17px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .update-profile-right-side-change-info-container {
+      border: 1px solid #ECECEC;
+      padding: 2em 0.8em 0.5em 0.8em;
+    }
+
+    .update-profile-right-side-change-info-container input, textarea, button {
+      display: block;
+      margin: 0 auto 0.5em auto;
+      width: 95%;
+    }
+
+    .update-profile-right-side-input-full-name,
+    .update-profile-right-side-input-tagline,
+    .update-profile-right-side-input-profile-image-url {
+      height: 2.5em;
+      border: 1px solid #B6B6B6;
+    }
+
+    .update-profile-right-side-input-bio {
+      height: 18em;
+      border: 1px solid #B6B6B6;
+    }
+
+    .update-profile-right-side-save-changes-button {
+      height: 2.6em;
+      margin-top: 0.8em;
+      text-align: center;
+      border: 1px solid #ECECEC;
+      font-size: 13.44px;
+      line-height: 17px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
 
 /************ Footer *****************/
 
@@ -324,10 +383,7 @@ h5.sally-rally-heading {
   line-height: 19px;
 }
 
-.save-changes-text {
-  font-size: 13.44px;
-  line-height: 17px;
-}
+
 
 .add-friend-text {
   font-size: 13.18px;
