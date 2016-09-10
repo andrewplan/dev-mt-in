@@ -187,7 +187,12 @@ main {
     }
 
     .friends-view-filter-by-input {
+      width: 8em;
       border: none;
+      font-size: 19.8px;
+      line-height: 24px;
+      margin-right: 2em;
+      text-align: center;
     }
 
     h4.friends-view-friends-heading {
@@ -227,22 +232,22 @@ main {
 
     .search-for-new-friends-search-icon-wrapper {
       height: 100%;
-      width: 1.4em;
+      width: 1.2em;
       float: left;
       display: flex;
       align-items: center;
     }
 
     .search-for-new-friends-search-icon {
-      width: 1.4em;
+      width: 1.2em;
     }
 
     .search-for-new-friends-filter-by-input {
       width: 100%;
       font-size: 19.8px;
       line-height: 24px;
-      margin: 0 0 0 1.9em;
-      text-align: left;
+      margin: 0;
+      text-align: center;
       border: none;
     }
 
