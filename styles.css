@@ -210,6 +210,68 @@ main {
       display: inline-block;
     }
 
+    /********* Search For New Friends ******/
+
+    #search-for-new-friends-right-side {
+      padding: 0 1em;
+      width: 22em;
+    }
+
+    #search-for-new-friends-nav-bar {
+      height: 2.2em;
+      border: 1px solid gainsboro;
+      margin-bottom: 0.5em;
+      padding: 0 0.6em;
+      display: flex;
+    }
+
+    .search-for-new-friends-search-icon-wrapper {
+      height: 100%;
+      width: 1.4em;
+      float: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-for-new-friends-search-icon {
+      width: 1.4em;
+    }
+
+    .search-for-new-friends-filter-by-input {
+      width: 100%;
+      font-size: 19.8px;
+      line-height: 24px;
+      margin: 0 0 0 1.9em;
+      text-align: left;
+      border: none;
+    }
+
+    /*h4.search-for-new-friends-search-for-friends-heading {
+      font-size: 19.8px;
+      line-height: 24px;
+      margin-right: 2em;
+    }*/
+
+    h6.search-for-new-friends-search-for-friends-heading {
+      font-size: 16.8px;
+      line-height: 21px;
+    }
+
+    #search-for-new-friends-results-grid {
+      width: 100%;
+      height: 27em;
+      column-count: 2;
+    }
+
+    .result-thumbnail {
+      height: 7.5em;
+      margin: 0.2em 0;
+      width: 9em;
+      border: 1px solid black;
+      display: inline-block;
+    }
+
+
 /************ Footer *****************/
 
 .bottom-nav-bar {
@@ -240,10 +302,7 @@ h3.friend-profile-view-heading {
 }
 
 
-h6.search-for-friends-heading {
-  font-size: 16.8px;
-  line-height: 21px;
-}
+
 
 .full-name-text-1 {
   font-size: 16.8px;
