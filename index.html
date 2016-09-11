@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+	lang="en"
+	ng-app="dmSocialApp"
+>
 
 <head>
 	<meta charset="UTF-8">
@@ -8,12 +11,12 @@
 	<title>DevMtin</title>
 </head>
 
-<body>
+<body ng-controller="mainController">
 
 <!-- ****************** Top Nav Bars ************************* -->
 
 	<!-- Initial View -->
-	<!-- <nav id="initial-view-top-nav-bar" class="all-top-nav-bars">
+	<nav id="initial-view-top-nav-bar" class="all-top-nav-bars" ng-show="showInitialPageTopNavBar">
 
 		<div class="left-icon-wrapper">
 			<img src="images/icons/Search.svg" alt="" />
@@ -25,10 +28,10 @@
 			<img src="images/icons/Ham.svg" alt="Hamburger menu">
 		</div>
 
-	</nav> -->
+	</nav>
 
 	<!-- Landing Page -->
-	<!-- <nav id="landing-page-top-nav-bar" class="all-top-nav-bars">
+	<nav id="landing-page-top-nav-bar" class="all-top-nav-bars" ng-show="showLandingPageTopNavBar">
 
 		<div class="landing-page-left-icon-wrapper">
 			<img class="landing-page-left-icon" src="images/icons/landing-page-left-icon-placeholder.png" alt="" />
@@ -40,10 +43,10 @@
 			<img class="landing-page-right-icon" src="images/icons/Search.svg" alt="Search For New Friends">
 		</div>
 
-	</nav> -->
+	</nav>
 
 	<!-- Friends View | Search For New Friends | Friend Profile View | Update Profile -->
-	<nav id="all-other-views-top-nav-bar" class="all-top-nav-bars friends-view-top-nav-bar search-for-new-friends-top-nav-bar friend-profile-view-top-nav-bar update-profile-top-nav-bar">
+	<nav id="all-other-views-top-nav-bar" class="all-top-nav-bars friends-view-top-nav-bar search-for-new-friends-top-nav-bar friend-profile-view-top-nav-bar update-profile-top-nav-bar" ng-show="showAllOtherViewsTopNavBar">
 
 		<div class="all-other-views-left-icon-wrapper">
 			<img class="all-other-views-left-icon" src="images/icons/Back-Arrow.svg" alt="" />
@@ -65,7 +68,10 @@
 	<!-- ********************** Left Side ************************* -->
 
 		<!-- Initial View -->
-		<!-- <div id="initial-view-left-side">
+		<div
+			id="initial-view-left-side"
+			ng-show="showInitialViewLeftSide"
+		>
 
 			<h2 class="initial-view-welcome-to-devmtn-text">
 				Welcome to <span class="initial-view-left-side-devmtn-link-text">DevMountain</span> Social
@@ -74,34 +80,73 @@
 			</h2>
 
 			<form class="initial-view-left-side-add-info-form" action="">
-				<input type="text" class="initial-view-left-side-input-full-name" placeholder="Full Name">
-				<input type="text" class="initial-view-left-side-input-tagline" placeholder="Tagline">
-				<input type="text" class="initial-view-left-side-input-profile-image-url" placeholder="Profile Image Url">
-				<textarea name="bio-text" class="initial-view-left-side-input-bio" cols="30" rows="10" placeholder="Bio"></textarea>
-				<button class="initial-view-left-side-save-changes">Save Changes</button>
+				<input
+					class="initial-view-left-side-input-full-name"
+					ng-model="myFullName"
+					placeholder="Full Name"
+					type="text"
+				>
+				<input
+					class="initial-view-left-side-input-tagline"
+					ng-model="myTagline"
+					placeholder="Tagline"
+					type="text"
+				>
+				<input
+					class="initial-view-left-side-input-profile-image-url"
+					ng-model="myProfileImageUrl"
+					placeholder="Profile Image Url"
+					type="text"
+				>
+				<!-- <input type="text" name="name" ng-model="myBio"> -->
+				<textarea
+					class="initial-view-left-side-input-bio"
+					name="bio-text"
+					ng-model="myBio"
+					placeholder="Bio"
+				>
+				</textarea>
+				<button
+					class="initial-view-left-side-save-changes"
+					ng-click="initialPageSaveChanges(
+						{
+								'name': myFullName
+							,	'tagline': myTagline
+							, 'profileUrl': myProfileImageUrl
+							, 'bio': myBio
+						}
+						, $event
+					)"
+				>
+					Save Changes
+				</button>
 			</form>
 
-		</div> -->
+		</div>
 
 		<!-- Landing Page | Friends View | Search For New Friends | Update Profile -->
 
-		<div id="my-profile-view-left-side" class="landing-page-left-side friends-view-left-side search-for-new-friends-left-side update-profile-left-side">
+		<div
+			class="landing-page-left-side friends-view-left-side search-for-new-friends-left-side update-profile-left-side"
+			id="my-profile-view-left-side"
+			ng-show="showMyProfileViewLeftSide"
+		>
 
-			<h1 class="profile-view-left-side-name-heading">Chis Johnson</h1>
+			<h1 class="profile-view-left-side-name-heading">{{ myProfile.name }}</h1>
 
-			<h2 class="profile-view-left-side-tagline-text">SOME AWESOME TAGLINE ABOUT YOU</h2>
+			<h2 class="profile-view-left-side-tagline-text">{{ myProfile.tagline }}</h2>
 
 			<p class="profile-view-left-side-bio-text">
-				Lorem Khaled Ipsum is a major key to success. I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. Celebrate success right, the only way, apple. The weather is amazing, walk with me through the pathway of more success. Take this journey with me, Lion! A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. Eliptical talk. Wraith talk.
-				<br/>
-				<br/>
-				The weather is amazing, walk with me through the pathway of more success. Take this journey with me, Lion! I told you all this before, when you have a swimming pool, do not use chlorine, use salt water, the healing, salt water is the healing. You see that bamboo behind me though, you see that bamboo? Ain’t nothin’ like bamboo.
+				{{ myProfile.bio }}
 			</p>
 
 		</div>
 
 		<!-- Friend Profile View -->
-			<!-- <div id="friend-profile-view-left-side">
+			<div
+				id="friend-profile-view-left-side"
+				ng-show="showFriendProfileViewLeftSide"
+			>
 
 				<h1 class="profile-view-left-side-name-heading">Sally Rally</h1>
 
@@ -115,36 +160,68 @@
 				</p>
 				<div class="profile-view-left-side-add-friend-button">ADD FRIEND</div>
 
-			</div> -->
+			</div>
 
 	<!-- ********************** Right Side ************************* -->
 
 		<!-- Initial View -->
-		<!-- <div id="initial-view-right-side" class="right-side-image-wrapper">
-			<img src="images/initial-view-img-placeholder.png" alt="Initial view image">
-		</div> -->
+		<div
+			class="right-side-image-wrapper"
+			id="initial-view-right-side"
+			ng-show="showInitialViewRightSide"
+		>
+			<img
+				alt="Initial view image"
+				src="images/initial-view-img-placeholder.png"
+			>
+		</div>
 
 		<!-- Landing Page -->
-		<!-- <div id="landing-page-right-side" class="right-side-image-wrapper">
-			<img src="images/initial-view-img-placeholder.png" alt="Landing page image">
-		</div> -->
+		<div
+			class="right-side-image-wrapper"
+			id="landing-page-right-side"
+			ng-show="showLandingPageRightSide"
+		>
+			<img
+				alt="Landing page image"
+				ng-src="{{ myProfile.profileUrl }}"
+			>
+		</div>
 
 		<!-- Friend Profile View -->
-		<!-- <div id="friend-profile-view-right-side" class="right-side-image-wrapper">
-			<img src="images/initial-view-img-placeholder.png" alt="Friend profile image">
-		</div> -->
+		<div
+			class="right-side-image-wrapper"
+			id="friend-profile-view-right-side"
+			ng-show="showFriendProfileViewRightSide"
+		>
+			<img
+				alt="Friend profile image"
+				src="images/initial-view-img-placeholder.png"
+			>
+		</div>
 
 		<!-- Friends View -->
-		<!-- <div id="friends-view-right-side">
+		<div
+			id="friends-view-right-side"
+			ng-show="showFriendsViewRightSide"
+		>
 
 			<nav id="friends-view-nav-bar">
 
 				<div class="friends-view-sort-direction-button">ASCENDING</div>
 
-				<input type="text" class="friends-view-filter-by-input" value="Friends">
+				<input
+					class="friends-view-filter-by-input"
+					type="text"
+					value="Friends"
+				>
 
 				<div class="friends-view-search-icon-wrapper">
-					<img class="friends-view-search-icon" src="images/icons/Search.svg" alt="">
+					<img
+						alt="Friends view search icon"
+						class="friends-view-search-icon"
+						src="images/icons/Search.svg"
+					>
 				</div>
 
 			</nav>
@@ -158,19 +235,30 @@
 				<div class="friend-thumbnail"></div>
 			</div>
 
-		</div> -->
+		</div>
 
 		<!-- Search For New Friends -->
 
-			<!-- <div id="search-for-new-friends-right-side">
+			<div
+				id="search-for-new-friends-right-side"
+				ng-show="showSearchForNewFriendsRightSide"
+			>
 
 				<nav id="search-for-new-friends-nav-bar">
 
 					<div class="search-for-new-friends-search-icon-wrapper">
-						<img class="search-for-new-friends-search-icon" src="images/icons/Search.svg" alt="">
+						<img
+							alt="Search for new friends"
+							class="search-for-new-friends-search-icon"
+							src="images/icons/Search.svg"
+						>
 					</div>
 
-					<input type="text" class="search-for-new-friends-filter-by-input" value="Search for Friends">
+					<input
+						class="search-for-new-friends-filter-by-input"
+						type="text"
+						value="Search for Friends"
+					>
 					</input>
 
 				</nav>
@@ -184,20 +272,57 @@
 					<div class="result-thumbnail"></div>
 				</div>
 
-			</div> -->
+			</div>
 
 		<!-- Update Profile -->
-			<div id="update-profile-right-side">
+			<div
+				id="update-profile-right-side"
+				ng-show="showUpdateProfileRightSide"
+			>
 				<div class="update-profile-right-side-profile-settings">
 					<p>Profile Settings</p>
 				</div>
 				<div class="update-profile-right-side-change-info-container">
-					<input type="text" class="update-profile-right-side-input-full-name" placeholder="Full Name">
-					<input type="text" class="update-profile-right-side-input-tagline" placeholder="Tagline">
-					<input type="text" class="update-profile-right-side-input-profile-image-url" placeholder="Profile Image Url">
-					<textarea name="bio-text" class="update-profile-right-side-input-bio" cols="30" rows="10" placeholder="Bio"></textarea>
+					<input
+						class="update-profile-right-side-input-full-name"
+						ng-model="nameUpdate"
+						placeholder="Full Name"
+						type="text"
+					>
+					<input
+						class="update-profile-right-side-input-tagline"
+						ng-model="taglineUpdate"
+						placeholder="Tagline"
+						type="text"
+					>
+					<input
+						class="update-profile-right-side-input-profile-image-url"
+						ng-model="profileUrlUpdate"
+						placeholder="Profile Image Url"
+						type="text"
+					>
+					<textarea
+						class="update-profile-right-side-input-bio"
+						cols="30"
+						name="bio-text"
+						ng-model="bioUpdate"
+						placeholder="Bio"
+						rows="10"
+					>
+					</textarea>
 				</div>
-				<div class="update-profile-right-side-save-changes-button">
+				<div
+					class="update-profile-right-side-save-changes-button"
+					ng-click="updateProfile(
+						{
+								'name': nameUpdate
+							,	'tagline': taglineUpdate
+							, 'profileUrl': profileUrlUpdate
+							, 'bio': bioUpdate
+						}
+						, $event
+					)"
+				>
 					<p>Save Changes</p>
 				</div>
 			</div>
@@ -210,10 +335,33 @@
 <!-- ****************** Footer ( all views ) ************************* -->
 
   <footer class="bottom-nav-bar footer-text">
-  	<span>View Friends</span>
-  	<span>Find Friends</span>
-  	<span>Update Profile</span>
+  	<span
+			id="view-friends-linkspan"
+			ng-class="{ 'underline-link' : viewFriendsIsActive }"
+			ng-click="!isUserProfileLogged || goToViewFriends()"
+		>
+			View Friends
+		</span>
+  	<span
+			id="find-friends-linkspan"
+			ng-class="{ 'underline-link' : findFriendsIsActive }"
+			ng-click="!isUserProfileLogged || goToFindFriends()"
+		>
+			Find Friends
+		</span>
+  	<span
+			id="update-profile-linkspan"
+			ng-class="{ 'underline-link' : updateProfileIsActive }"
+			ng-click="!isUserProfileLogged || goToUpdateProfile()"
+		>
+			Update Profile
+		</span>
   </footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" charset="utf-8"></script>
+	<script src="js/app.js" charset="utf-8"></script>
+	<script src="js/mainController.js" charset="utf-8"></script>
+	<script src="js/mainService.js" charset="utf-8"></script>
 
 </body>
 </html>

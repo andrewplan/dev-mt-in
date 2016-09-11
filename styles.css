@@ -10,12 +10,15 @@
 }
 
 body {
-  padding: 0 19em;
+  /*padding: 6em 15em 0 15em;*/
+  width: 50em;
+  margin: 0 auto;
 }
 
 main {
   display: flex;
   padding: 1.5em 0.5em;
+  height: 33em;
   justify-content: space-around;
 }
 
@@ -115,6 +118,7 @@ main {
       padding-left: 1.5em;
       padding-right: 1.5em;
       text-align: justify;
+      overflow: scroll;
     }
 
     h1.profile-view-left-side-name-heading {
@@ -138,6 +142,7 @@ main {
       font-family: 'Open Sans', sans-serif;
       font-size: 10.2px;
       line-height: 14px;
+
     }
 
     .profile-view-left-side-add-friend-button {
@@ -157,14 +162,15 @@ main {
         Friend Profile View ******/
 
     .right-side-image-wrapper {
-      width: 22em;
+      width: 25em;
       height: 30em;
       display: flex;
       border-bottom: 1px solid white;
     }
 
     .right-side-image-wrapper img {
-      height: 30em;
+      max-width: 100%;
+      max-height: 100%;
       margin: 0 auto;
       border-bottom: 1px solid white;
     }
@@ -361,6 +367,12 @@ main {
   line-height: 18px;
   color: #B6B6B6;
 }
+
+.underline-link {
+  border-bottom: 4px solid #74FDF2;
+}
+
+
 
 /**************************************/
 
