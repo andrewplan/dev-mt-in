@@ -1,21 +1,24 @@
 angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, mainService ) {
 
-  $scope.showInitialPageTopNavBar = true;
-  $scope.showLandingPageTopNavBar = false;
-  $scope.showAllOtherViewsTopNavBar = false;
+  $scope.viewStates = {
+      showInitialPageTopNavBar: true
+    , showLandingPageTopNavBar: false
+    , showAllOtherViewsTopNavBar: false
 
-  $scope.showInitialViewLeftSide = true;
-  $scope.showMyProfileViewLeftSide = false;
-  $scope.showFriendProfileViewLeftSide = false;
+    , showInitialViewLeftSide: true
+    , showUserProfileViewLeftSide: false
+    , showFriendProfileViewLeftSide: false
 
-  $scope.showInitialViewRightSide = true;
-  $scope.showLandingPageRightSide = false;
-  $scope.showFriendProfileViewRightSide = false;
-  $scope.showFriendsViewRightSide = false;
-  $scope.showSearchForNewFriendsRightSide = false;
-  $scope.showUpdateProfileRightSide = false;
+    , showInitialViewRightSide: true
+    , showLandingPageRightSide: false
+    , showFriendProfileViewRightSide: false
+    , showFriendsViewRightSide: false
+    , showSearchForNewFriendsRightSide: false
+    , showUpdateProfileViewRightSide: false
+  };
 
-  $scope.myProfile = {};
+  $scope.userProfile = {};
+  $scope.friendProfile = {};
 
   $scope.viewFriendsIsActive = false;
   $scope.findFriendsIsActive = false;
@@ -23,21 +26,25 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
 
   $scope.isUserProfileLogged = false;
 
+  $scope.thumbnailOverlayActive = false;
+
   $scope.goToViewFriends = function() {
-    $scope.showAllOtherViewsTopNavBar = true;
-    $scope.showInitialPageTopNavBar = false;
-    $scope.showLandingPageTopNavBar = false;
+    $scope.userFriends = mainService.getUserFriends();
 
-    $scope.showMyProfileViewLeftSide = true;
-    $scope.showInitialViewLeftSide = false;
-    $scope.showFriendProfileViewLeftSide = false;
+    $scope.viewStates.showAllOtherViewsTopNavBar = true;
+    $scope.viewStates.showInitialPageTopNavBar = false;
+    $scope.viewStates.showLandingPageTopNavBar = false;
 
-    $scope.showFriendsViewRightSide = true;
-    $scope.showInitialViewRightSide = false;
-    $scope.showLandingPageRightSide = false;
-    $scope.showFriendProfileViewRightSide = false;
-    $scope.showSearchForNewFriendsRightSide = false;
-    $scope.showUpdateProfileRightSide = false;
+    $scope.viewStates.showUserProfileViewLeftSide = true;
+    $scope.viewStates.showInitialViewLeftSide = false;
+    $scope.viewStates.showFriendProfileViewLeftSide = false;
+
+    $scope.viewStates.showFriendsViewRightSide = true;
+    $scope.viewStates.showInitialViewRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = false;
+    $scope.viewStates.showFriendProfileViewRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = false;
+    $scope.viewStates.showUpdateProfileViewRightSide = false;
 
     $scope.viewFriendsIsActive = true;
     $scope.findFriendsIsActive = false;
@@ -46,20 +53,20 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   };
 
   $scope.goToFindFriends = function() {
-    $scope.showAllOtherViewsTopNavBar = true;
-    $scope.showInitialPageTopNavBar = false;
-    $scope.showLandingPageTopNavBar = false;
+    $scope.viewStates.showAllOtherViewsTopNavBar = true;
+    $scope.viewStates.showInitialPageTopNavBar = false;
+    $scope.viewStates.showLandingPageTopNavBar = false;
 
-    $scope.showMyProfileViewLeftSide = true;
-    $scope.showInitialViewLeftSide = false;
-    $scope.showFriendProfileViewLeftSide = false;
+    $scope.viewStates.showUserProfileViewLeftSide = true;
+    $scope.viewStates.showInitialViewLeftSide = false;
+    $scope.viewStates.showFriendProfileViewLeftSide = false;
 
-    $scope.showSearchForNewFriendsRightSide = true;
-    $scope.showInitialViewRightSide = false;
-    $scope.showLandingPageRightSide = false;
-    $scope.showFriendProfileViewRightSide = false;
-    $scope.showFriendsViewRightSide = false;
-    $scope.showUpdateProfileRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = true;
+    $scope.viewStates.showInitialViewRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = false;
+    $scope.viewStates.showFriendProfileViewRightSide = false;
+    $scope.viewStates.showFriendsViewRightSide = false;
+    $scope.viewStates.showUpdateProfileViewRightSide = false;
 
     $scope.findFriendsIsActive = true;
     $scope.viewFriendsIsActive = false;
@@ -67,20 +74,20 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   };
 
   $scope.goToUpdateProfile = function() {
-    $scope.showAllOtherViewsTopNavBar = true;
-    $scope.showInitialPageTopNavBar = false;
-    $scope.showLandingPageTopNavBar = false;
+    $scope.viewStates.showAllOtherViewsTopNavBar = true;
+    $scope.viewStates.showInitialPageTopNavBar = false;
+    $scope.viewStates.showLandingPageTopNavBar = false;
 
-    $scope.showMyProfileViewLeftSide = true;
-    $scope.showFriendProfileViewLeftSide = false;
-    $scope.showInitialViewLeftSide = false;
+    $scope.viewStates.showUserProfileViewLeftSide = true;
+    $scope.viewStates.showFriendProfileViewLeftSide = false;
+    $scope.viewStates.showInitialViewLeftSide = false;
 
-    $scope.showUpdateProfileRightSide = true;
-    $scope.showInitialViewRightSide = false;
-    $scope.showLandingPageRightSide = false;
-    $scope.showFriendProfileViewRightSide = false;
-    $scope.showFriendsViewRightSide = false;
-    $scope.showSearchForNewFriendsRightSide = false;
+    $scope.viewStates.showUpdateProfileViewRightSide = true;
+    $scope.viewStates.showInitialViewRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = false;
+    $scope.viewStates.showFriendProfileViewRightSide = false;
+    $scope.viewStates.showFriendsViewRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = false;
 
     $scope.updateProfileIsActive = true;
     $scope.findFriendsIsActive = false;
@@ -88,43 +95,65 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   };
 
   $scope.goToLandingPage = function() {
-    $scope.showLandingPageTopNavBar = true;
-    $scope.showAllOtherViewsTopNavBar = false;
-    $scope.showInitialPageTopNavBar = false;
+    $scope.viewStates.showLandingPageTopNavBar = true;
+    $scope.viewStates.showAllOtherViewsTopNavBar = false;
+    $scope.viewStates.showInitialPageTopNavBar = false;
 
-    $scope.showMyProfileViewLeftSide = true;
-    $scope.showFriendProfileViewLeftSide = false;
-    $scope.showInitialViewLeftSide = false;
+    $scope.viewStates.showUserProfileViewLeftSide = true;
+    $scope.viewStates.showFriendProfileViewLeftSide = false;
+    $scope.viewStates.showInitialViewLeftSide = false;
 
-    $scope.showLandingPageRightSide = true;
-    $scope.showUpdateProfileRightSide = false;
-    $scope.showInitialViewRightSide = false;
-    $scope.showFriendProfileViewRightSide = false;
-    $scope.showFriendsViewRightSide = false;
-    $scope.showSearchForNewFriendsRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = true;
+    $scope.viewStates.showUpdateProfileViewRightSide = false;
+    $scope.viewStates.showInitialViewRightSide = false;
+    $scope.viewStates.showFriendProfileViewRightSide = false;
+    $scope.viewStates.showFriendsViewRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = false;
 
-  }
+  };
 
   $scope.initialPageSaveChanges = function( profileObj, $event ) {
     $event.preventDefault();
-    $scope.myProfile = profileObj;
-    mainService.storeMyProfile( profileObj );
+    $scope.userProfile = profileObj;
+    mainService.storeUserProfile( profileObj );
     $scope.goToLandingPage();
     $scope.isUserProfileLogged = true;
   };
 
   $scope.updateProfile = function( profileObj, $event ) {
     $event.preventDefault();
-    $scope.myProfile = mainService.getMyProfile();
+    $scope.userProfile = mainService.getUserProfile();
 
     for ( var prop in profileObj ) {
       if ( profileObj[ prop ] ) {
-        $scope.myProfile[ prop ] = profileObj[ prop ];
+        $scope.userProfile[ prop ] = profileObj[ prop ];
       }
     }
 
-    mainService.storeMyProfile( $scope.myProfile );
+    mainService.storeUserProfile( $scope.userProfile );
     $scope.goToLandingPage();
   };
+
+  $scope.viewOtherProfile = function( profileObj, $event ) {
+    $event.preventDefault();
+
+    $scope.friendProfile = profileObj;
+
+    $scope.viewStates.showAllOtherViewsTopNavBar = true;
+    $scope.viewStates.showInitialPageTopNavBar = false;
+    $scope.viewStates.showLandingPageTopNavBar = false;
+
+    $scope.viewStates.showFriendProfileViewLeftSide = true;
+    $scope.viewStates.showInitialViewLeftSide = false;
+    $scope.viewStates.showUserProfileViewLeftSide = false;
+
+    $scope.viewStates.showFriendProfileViewRightSide = true;
+    $scope.viewStates.showUpdateProfileViewRightSide = false;
+    $scope.viewStates.showInitialViewRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = false;
+    $scope.viewStates.showFriendsViewRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = false;
+  };
+
 
 } )
