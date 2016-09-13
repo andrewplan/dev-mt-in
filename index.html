@@ -256,8 +256,9 @@
 
 				<input
 					class="friends-view-filter-by-input"
+					ng-model="filterFriendsText"
 					type="text"
-					value="Friends"
+					placeholder="Friends"
 				>
 
 				<div class="friends-view-search-icon-wrapper">
@@ -273,7 +274,7 @@
 			<div id="user-friends-grid">
 				<div
 					class="friend-thumbnail"
-					ng-repeat="friend in userFriends track by $index"
+					ng-repeat="friend in userFriends | filter: filterFriendsText"
 					ng-mouseenter="thumbnailOverlayActive = true"
 					ng-mouseleave="thumbnailOverlayActive = false"
 				>
@@ -314,19 +315,20 @@
 
 				<nav id="search-for-new-friends-nav-bar">
 
-					<div class="search-for-new-friends-search-icon-wrapper">
+					<div
+						class="search-for-new-friends-search-icon-wrapper"
+					>
 						<img
 							alt="Search for new friends"
 							class="search-for-new-friends-search-icon"
 							src="images/icons/Search.svg"
 						>
 					</div>
-
 					<input
 						class="search-for-new-friends-filter-by-input"
-						ng-model="filterText"
+						ng-model="filterResultsText"
 						type="text"
-						value="Search for Friends"
+						placeholder="Search for Friends"
 					>
 					</input>
 
@@ -337,7 +339,7 @@
 						class="result-thumbnail"
 						ng-mouseenter="thumbnailOverlayActive = true"
 						ng-mouseleave="thumbnailOverlayActive = false"
-						ng-repeat="result in userResults | filter: filterText"
+						ng-repeat="result in userResults | filter: { name: filterResultsText }"
 					>
 						<img
 							alt=""

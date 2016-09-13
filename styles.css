@@ -248,6 +248,7 @@ main {
       position: absolute;
       top: 0;
       left: 0;
+      padding: 0 0.5em;
     }
 
     h5.thumbnail-overlay-heading {
@@ -255,11 +256,12 @@ main {
       line-height: 21px;
       color: white;
       text-align: center;
+      margin-bottom: 0.5em;
     }
 
     .thumbnail-overlay-view-profile-button {
       border: 1px solid white;
-      width: 75%;
+      width: 65%;
       margin: 0 auto;
       padding: 0;
     }
@@ -309,11 +311,11 @@ main {
       border: none;
     }
 
-    /*h4.search-for-new-friends-search-for-friends-heading {
+    h4.search-for-new-friends-search-for-friends-heading {
       font-size: 19.8px;
       line-height: 24px;
       margin-right: 2em;
-    }*/
+    }
 
     h6.search-for-new-friends-search-for-friends-heading {
       font-size: 16.8px;

@@ -26,6 +26,7 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   $scope.updateProfileIsActive = false;
 
   $scope.isUserProfileLogged = false;
+  $scope.isSearchForNewFriendsFilterDormant = true;
 
   $scope.thumbnailOverlayActive = false;
 
@@ -208,5 +209,6 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
     userService.removeFriendFromUserFriends( $scope.friendProfile );
     $scope.isPersonInUserFriends = false;
   };
+
 
 } )
