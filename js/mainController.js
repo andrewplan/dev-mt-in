@@ -1,4 +1,4 @@
-angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, mainService ) {
+angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, userService, resultsService ) {
 
   $scope.viewStates = {
       showInitialPageTopNavBar: true
@@ -29,7 +29,7 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   $scope.thumbnailOverlayActive = false;
 
   $scope.goToViewFriends = function() {
-    $scope.userFriends = mainService.getUserFriends();
+    $scope.userFriends = userService.getUserFriends();
 
     $scope.viewStates.showAllOtherViewsTopNavBar = true;
     $scope.viewStates.showInitialPageTopNavBar = false;
@@ -53,6 +53,8 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   };
 
   $scope.goToFindFriends = function() {
+    $scope.userResults = resultsService.getUserResults();
+
     $scope.viewStates.showAllOtherViewsTopNavBar = true;
     $scope.viewStates.showInitialPageTopNavBar = false;
     $scope.viewStates.showLandingPageTopNavBar = false;
@@ -115,14 +117,14 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   $scope.initialPageSaveChanges = function( profileObj, $event ) {
     $event.preventDefault();
     $scope.userProfile = profileObj;
-    mainService.storeUserProfile( profileObj );
+    userService.storeUserProfile( profileObj );
     $scope.goToLandingPage();
     $scope.isUserProfileLogged = true;
   };
 
   $scope.updateProfile = function( profileObj, $event ) {
     $event.preventDefault();
-    $scope.userProfile = mainService.getUserProfile();
+    $scope.userProfile = userService.getUserProfile();
 
     for ( var prop in profileObj ) {
       if ( profileObj[ prop ] ) {
@@ -130,7 +132,7 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
       }
     }
 
-    mainService.storeUserProfile( $scope.userProfile );
+    userService.storeUserProfile( $scope.userProfile );
     $scope.goToLandingPage();
   };
 

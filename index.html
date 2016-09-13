@@ -291,6 +291,7 @@
 
 					<input
 						class="search-for-new-friends-filter-by-input"
+						ng-model="filterText"
 						type="text"
 						value="Search for Friends"
 					>
@@ -301,7 +302,9 @@
 				<div id="search-for-new-friends-results-grid">
 					<div
 						class="result-thumbnail"
-						ng-repeat="result in userResults track by $index"
+						ng-mouseenter="thumbnailOverlayActive = true"
+						ng-mouseleave="thumbnailOverlayActive = false"
+						ng-repeat="result in userResults | filter: filterText"
 					>
 						<img
 							alt=""
@@ -309,6 +312,7 @@
 						>
 						<div
 							class="thumbnail-overlay"
+							ng-show="thumbnailOverlayActive"
 						>
 							<h5 class="thumbnail-overlay-heading">
 								{{ result.name }}
@@ -317,7 +321,7 @@
 								class="thumbnail-overlay-view-profile-button"
 								ng-click="viewProfile( result, $event )"
 							>
-								<p class="thumbnail-overlay-view-profile-text">View Profile</p>
+								<p class="thumbnail-overlay-view-profile-button-text">View Profile</p>
 							</div>
 						</div>
 				</div>
@@ -412,6 +416,7 @@
 	<script src="js/app.js" charset="utf-8"></script>
 	<script src="js/mainController.js" charset="utf-8"></script>
 	<script src="js/userService.js" charset="utf-8"></script>
+	<script src="js/resultsService.js" charset="utf-8"></script>
 
 </body>
 </html>
