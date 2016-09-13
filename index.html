@@ -24,25 +24,42 @@
 
 		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
 
-		<div class="right-icon-wrapper">
+		<div
+			class="right-icon-wrapper"
+			ng-click="!isUserProfileLogged || goToLandingPage()"
+		>
 			<img src="images/icons/Ham.svg" alt="Hamburger menu">
 		</div>
 
 	</nav>
 
 	<!-- Landing Page -->
-	<nav id="landing-page-top-nav-bar" class="all-top-nav-bars" ng-show="viewStates.showLandingPageTopNavBar">
+	<nav
+		class="all-top-nav-bars"
+		id="landing-page-top-nav-bar"  ng-show="viewStates.showLandingPageTopNavBar"
+	>
 
-		<div class="landing-page-left-icon-wrapper">
-			<img class="landing-page-left-icon" src="images/icons/landing-page-left-icon-placeholder.png" alt="" />
+		<div
+			class="landing-page-left-icon-wrapper"
+			ng-click="goToInitialView()"
+		>
+			<img
+				alt=""
+				class="landing-page-left-icon"
+				src="images/icons/landing-page-left-icon-placeholder.png"
+			/>
 		</div>
 
 		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
 
-		<div class="landing-page-right-icon-wrapper">
+		<div
+			class="landing-page-right-icon-wrapper"
+		>
 			<img
 				alt="Search For New Friends"
-				class="landing-page-right-icon" src="images/icons/Search.svg"
+				class="landing-page-right-icon"
+				ng-click="goToFindFriends()"
+				src="images/icons/Search.svg"
 			>
 		</div>
 
@@ -53,7 +70,7 @@
 
 		<div
 			class="all-other-views-left-icon-wrapper"
-			ng-click="goToFriendsView()"
+			ng-click="goToViewFriends()"
 		>
 			<img
 				alt="Go back"
@@ -64,7 +81,10 @@
 
 		<h1 class="all-top-nav-bars-devmtn-text">DevMountain</h1>
 
-		<div class="all-other-views-right-icon-wrapper">
+		<div
+			class="all-other-views-right-icon-wrapper"
+			ng-click="goToLandingPage()"
+		>
 			<img class="all-other-views-right-icon" src="images/icons/Ham.svg" alt="Hamburger menu">
 		</div>
 
@@ -169,7 +189,20 @@
 				<p class="profile-view-left-side-bio-text">
 					{{ friendProfile.bio }}
 				</p>
-				<div class="profile-view-left-side-add-friend-button">ADD FRIEND</div>
+				<div
+					class="profile-view-left-side-add-friend-button"
+					ng-click="addFriend( friendProfile )"
+					ng-hide="isPersonInUserFriends"
+				>
+					ADD FRIEND
+				</div>
+				<div
+					class="profile-view-left-side-remove-friend-button"
+					ng-click="removeFriend( friendProfile )"
+					ng-show="isPersonInUserFriends"
+				>
+					REMOVE FRIEND
+				</div>
 
 			</div>
 
@@ -257,7 +290,7 @@
 						</h5>
 						<div
 							class="thumbnail-overlay-view-profile-button"
-							ng-click="viewOtherProfile( friend, $event )"
+							ng-click="viewFriendProfile( friend, $event )"
 						>
 							<p class="thumbnail-overlay-view-profile-button-text">View Profile</p>
 						</div>
@@ -319,7 +352,7 @@
 							</h5>
 							<div
 								class="thumbnail-overlay-view-profile-button"
-								ng-click="viewProfile( result, $event )"
+								ng-click="viewFriendProfile( result, $event )"
 							>
 								<p class="thumbnail-overlay-view-profile-button-text">View Profile</p>
 							</div>

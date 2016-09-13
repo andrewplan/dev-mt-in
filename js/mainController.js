@@ -19,6 +19,7 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
 
   $scope.userProfile = {};
   $scope.friendProfile = {};
+  $scope.userFriends = [];
 
   $scope.viewFriendsIsActive = false;
   $scope.findFriendsIsActive = false;
@@ -27,6 +28,33 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
   $scope.isUserProfileLogged = false;
 
   $scope.thumbnailOverlayActive = false;
+
+  if ( localStorage.userProfile && localStorage.userFriends ) {
+    $scope.userProfile = userService.getUserProfile();
+    $scope.userFriends = userService.getUserFriends();
+    $scope.isUserProfileLogged = true;
+  }
+
+  $scope.goToInitialView = function() {
+    $scope.viewStates.showInitialPageTopNavBar = true;
+    $scope.viewStates.showLandingPageTopNavBar = false;
+    $scope.viewStates.showAllOtherViewsTopNavBar = false;
+
+    $scope.viewStates.showInitialViewLeftSide = true;
+    $scope.viewStates.showUserProfileViewLeftSide = false;
+    $scope.viewStates.showFriendProfileViewLeftSide = false;
+
+    $scope.viewStates.showInitialViewRightSide = true;
+    $scope.viewStates.showFriendsViewRightSide = false;
+    $scope.viewStates.showLandingPageRightSide = false;
+    $scope.viewStates.showFriendProfileViewRightSide = false;
+    $scope.viewStates.showSearchForNewFriendsRightSide = false;
+    $scope.viewStates.showUpdateProfileViewRightSide = false;
+
+    $scope.viewFriendsIsActive = false;
+    $scope.findFriendsIsActive = false;
+    $scope.updateProfileIsActive = false;
+  };
 
   $scope.goToViewFriends = function() {
     $scope.userFriends = userService.getUserFriends();
@@ -112,6 +140,9 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
     $scope.viewStates.showFriendsViewRightSide = false;
     $scope.viewStates.showSearchForNewFriendsRightSide = false;
 
+    $scope.updateProfileIsActive = false;
+    $scope.findFriendsIsActive = false;
+    $scope.viewFriendsIsActive = false;
   };
 
   $scope.initialPageSaveChanges = function( profileObj, $event ) {
@@ -134,12 +165,23 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
 
     userService.storeUserProfile( $scope.userProfile );
     $scope.goToLandingPage();
+
+    $scope.updateProfileIsActive = false;
+    $scope.findFriendsIsActive = false;
+    $scope.viewFriendsIsActive = false;
   };
 
-  $scope.viewOtherProfile = function( profileObj, $event ) {
+  $scope.viewFriendProfile = function( profileObj, $event ) {
     $event.preventDefault();
 
     $scope.friendProfile = profileObj;
+    $scope.isPersonInUserFriends = false;
+
+    for ( var i = 0; i < $scope.userFriends.length; i++ ) {
+      if ( $scope.userFriends[ i ].name === profileObj.name ) {
+          $scope.isPersonInUserFriends = true;
+      }
+    }
 
     $scope.viewStates.showAllOtherViewsTopNavBar = true;
     $scope.viewStates.showInitialPageTopNavBar = false;
@@ -157,5 +199,14 @@ angular.module( 'dmSocialApp' ).controller( 'mainController', function( $scope, 
     $scope.viewStates.showSearchForNewFriendsRightSide = false;
   };
 
+  $scope.addFriend = function( profileObj ) {
+    userService.addFriendToUserFriends( $scope.friendProfile );
+    $scope.isPersonInUserFriends = true;
+  };
+
+  $scope.removeFriend = function( profileObj ) {
+    userService.removeFriendFromUserFriends( $scope.friendProfile );
+    $scope.isPersonInUserFriends = false;
+  };
 
 } )

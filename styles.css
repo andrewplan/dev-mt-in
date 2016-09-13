@@ -145,7 +145,8 @@ main {
 
     }
 
-    .profile-view-left-side-add-friend-button {
+    .profile-view-left-side-add-friend-button,
+    .profile-view-left-side-remove-friend-button {
       height: 1.7em;
       padding: 0.3em;
       width: 100%;
@@ -169,8 +170,8 @@ main {
     }
 
     .right-side-image-wrapper img {
-      max-width: 100%;
-      max-height: auto;
+      width: 100%;
+      height: auto;
       margin: 0 auto;
       border-bottom: 1px solid white;
     }
