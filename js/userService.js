@@ -1,10 +1,4 @@
 angular.module( 'dmSocialApp' ).service( 'userService', function() {
-  var userProfile = {};
-  var userFriends = [];
-
-  localStorage.userProfile;
-  localStorage.userFriends;
-
   this.saveUserFriendsToLocalStorage = function() {
     localStorage.userFriends = JSON.stringify( userFriends );
   };
@@ -36,13 +30,21 @@ angular.module( 'dmSocialApp' ).service( 'userService', function() {
     this.saveUserFriendsToLocalStorage();
   };
 
+  var userProfile = {};
+  var userFriends = [];
+
+  localStorage.userProfile;
+  localStorage.userFriends;
+
   if ( localStorage.userProfile && localStorage.userFriends ) {
-    this.userProfile = this.getUserProfile();
-    this.userFriends = this.getUserFriends();
+    userProfile = this.getUserProfile();
+    userFriends = this.getUserFriends();
   }
   else {
     localStorage.userProfile = {};
     localStorage.userFriends = [];
   }
+
+
 
 } );
